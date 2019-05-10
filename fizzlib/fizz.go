@@ -15,16 +15,20 @@ func (c *Context)Fizzgame(i int) (ret interface{}) {
 	const BUZZ = "buzz"
 	var result string
 
-	if DevidedByNum(i, c.FizzNum) ||Contains(i, c.FizzNum){
+	if IsMatch(i, c.FizzNum) {
 
 		result += FIZZ
 	}
 
-	if DevidedByNum(i, c.BuzzNum) ||Contains(i,c.BuzzNum){
+	if IsMatch(i, c.BuzzNum) {
 		result += BUZZ
 	}
 
 	return RecombinteResult(result, i)
+}
+
+func IsMatch(i , m int) bool {
+	return DevidedByNum(i, m) || Contains(i, m)
 }
 
 func Contains(i , num int) bool {
